@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A49698B71D3DE3B30077A962 /* aw_encode_flv.c in Sources */ = {isa = PBXBuildFile; fileRef = A49698B51D3DE3B30077A962 /* aw_encode_flv.c */; };
+		A49698BA1D3E12240077A962 /* aw_convert_mp4_to_flv.c in Sources */ = {isa = PBXBuildFile; fileRef = A49698B81D3E12240077A962 /* aw_convert_mp4_to_flv.c */; };
+		A49873561D33A5D500EDED7A /* aw_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = A49873541D33A5D500EDED7A /* aw_utils.c */; };
+		A49873591D34C24500EDED7A /* aw_mp4box.c in Sources */ = {isa = PBXBuildFile; fileRef = A49873571D34C24500EDED7A /* aw_mp4box.c */; };
+		A498735C1D34C4ED00EDED7A /* aw_dict.c in Sources */ = {isa = PBXBuildFile; fileRef = A498735A1D34C4ED00EDED7A /* aw_dict.c */; };
+		A498735F1D37AB7900EDED7A /* aw_file.c in Sources */ = {isa = PBXBuildFile; fileRef = A498735D1D37AB7900EDED7A /* aw_file.c */; };
+		A49873621D38935100EDED7A /* aw_alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = A49873601D38935100EDED7A /* aw_alloc.c */; };
+		A49873651D38963400EDED7A /* test.mov in Resources */ = {isa = PBXBuildFile; fileRef = A49873641D38963400EDED7A /* test.mov */; };
+		A49873681D38CBE400EDED7A /* aw_parse_mp4.c in Sources */ = {isa = PBXBuildFile; fileRef = A49873661D38CBE400EDED7A /* aw_parse_mp4.c */; };
+		A498736B1D38DB5300EDED7A /* aw_array.c in Sources */ = {isa = PBXBuildFile; fileRef = A49873691D38DB5300EDED7A /* aw_array.c */; };
+		A4B0AA431CF69D2800DA4673 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B0AA421CF69D2800DA4673 /* main.m */; };
+		A4B0AA461CF69D2800DA4673 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B0AA451CF69D2800DA4673 /* AppDelegate.m */; };
+		A4B0AA491CF69D2800DA4673 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B0AA481CF69D2800DA4673 /* ViewController.m */; };
+		A4B0AA4C1CF69D2800DA4673 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B0AA4A1CF69D2800DA4673 /* Main.storyboard */; };
+		A4B0AA4E1CF69D2800DA4673 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4B0AA4D1CF69D2800DA4673 /* Assets.xcassets */; };
+		A4B0AA511CF69D2800DA4673 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B0AA4F1CF69D2800DA4673 /* LaunchScreen.storyboard */; };
+		A4B0AA5C1CF69DAD00DA4673 /* aw_data.c in Sources */ = {isa = PBXBuildFile; fileRef = A4B0AA5A1CF69DAD00DA4673 /* aw_data.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A49698B51D3DE3B30077A962 /* aw_encode_flv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_encode_flv.c; path = cCodes/aw_encode_flv.c; sourceTree = "<group>"; };
+		A49698B61D3DE3B30077A962 /* aw_encode_flv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_encode_flv.h; path = cCodes/aw_encode_flv.h; sourceTree = "<group>"; };
+		A49698B81D3E12240077A962 /* aw_convert_mp4_to_flv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_convert_mp4_to_flv.c; path = cCodes/aw_convert_mp4_to_flv.c; sourceTree = "<group>"; };
+		A49698B91D3E12240077A962 /* aw_convert_mp4_to_flv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_convert_mp4_to_flv.h; path = cCodes/aw_convert_mp4_to_flv.h; sourceTree = "<group>"; };
+		A49873541D33A5D500EDED7A /* aw_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_utils.c; path = cCodes/aw_utils.c; sourceTree = "<group>"; };
+		A49873551D33A5D500EDED7A /* aw_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_utils.h; path = cCodes/aw_utils.h; sourceTree = "<group>"; };
+		A49873571D34C24500EDED7A /* aw_mp4box.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_mp4box.c; path = cCodes/aw_mp4box.c; sourceTree = "<group>"; };
+		A49873581D34C24500EDED7A /* aw_mp4box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_mp4box.h; path = cCodes/aw_mp4box.h; sourceTree = "<group>"; };
+		A498735A1D34C4ED00EDED7A /* aw_dict.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_dict.c; path = cCodes/aw_dict.c; sourceTree = "<group>"; };
+		A498735B1D34C4ED00EDED7A /* aw_dict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_dict.h; path = cCodes/aw_dict.h; sourceTree = "<group>"; };
+		A498735D1D37AB7900EDED7A /* aw_file.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_file.c; path = cCodes/aw_file.c; sourceTree = "<group>"; };
+		A498735E1D37AB7900EDED7A /* aw_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_file.h; path = cCodes/aw_file.h; sourceTree = "<group>"; };
+		A49873601D38935100EDED7A /* aw_alloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_alloc.c; path = cCodes/aw_alloc.c; sourceTree = "<group>"; };
+		A49873611D38935100EDED7A /* aw_alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_alloc.h; path = cCodes/aw_alloc.h; sourceTree = "<group>"; };
+		A49873641D38963400EDED7A /* test.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = test.mov; sourceTree = "<group>"; };
+		A49873661D38CBE400EDED7A /* aw_parse_mp4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_parse_mp4.c; path = cCodes/aw_parse_mp4.c; sourceTree = "<group>"; };
+		A49873671D38CBE400EDED7A /* aw_parse_mp4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_parse_mp4.h; path = cCodes/aw_parse_mp4.h; sourceTree = "<group>"; };
+		A49873691D38DB5300EDED7A /* aw_array.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_array.c; path = cCodes/aw_array.c; sourceTree = "<group>"; };
+		A498736A1D38DB5300EDED7A /* aw_array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_array.h; path = cCodes/aw_array.h; sourceTree = "<group>"; };
+		A4B0AA3E1CF69D2800DA4673 /* pushStreamInC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pushStreamInC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4B0AA421CF69D2800DA4673 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A4B0AA441CF69D2800DA4673 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A4B0AA451CF69D2800DA4673 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A4B0AA471CF69D2800DA4673 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A4B0AA481CF69D2800DA4673 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A4B0AA4B1CF69D2800DA4673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A4B0AA4D1CF69D2800DA4673 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4B0AA501CF69D2800DA4673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A4B0AA521CF69D2900DA4673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4B0AA5A1CF69DAD00DA4673 /* aw_data.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_data.c; path = cCodes/aw_data.c; sourceTree = "<group>"; };
+		A4B0AA5B1CF69DAD00DA4673 /* aw_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_data.h; path = cCodes/aw_data.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A4B0AA3B1CF69D2800DA4673 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A49873631D38961800EDED7A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A49873641D38963400EDED7A /* test.mov */,
+			);
+			name = Resources;
+			path = pushStreamInC;
+			sourceTree = "<group>";
+		};
+		A4B0AA351CF69D2800DA4673 = {
+			isa = PBXGroup;
+			children = (
+				A4B0AA581CF69D2F00DA4673 /* cCodes */,
+				A49873631D38961800EDED7A /* Resources */,
+				A4B0AA401CF69D2800DA4673 /* pushStreamInC */,
+				A4B0AA3F1CF69D2800DA4673 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A4B0AA3F1CF69D2800DA4673 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A4B0AA3E1CF69D2800DA4673 /* pushStreamInC.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A4B0AA401CF69D2800DA4673 /* pushStreamInC */ = {
+			isa = PBXGroup;
+			children = (
+				A4B0AA441CF69D2800DA4673 /* AppDelegate.h */,
+				A4B0AA451CF69D2800DA4673 /* AppDelegate.m */,
+				A4B0AA471CF69D2800DA4673 /* ViewController.h */,
+				A4B0AA481CF69D2800DA4673 /* ViewController.m */,
+				A4B0AA4A1CF69D2800DA4673 /* Main.storyboard */,
+				A4B0AA4D1CF69D2800DA4673 /* Assets.xcassets */,
+				A4B0AA4F1CF69D2800DA4673 /* LaunchScreen.storyboard */,
+				A4B0AA521CF69D2900DA4673 /* Info.plist */,
+				A4B0AA411CF69D2800DA4673 /* Supporting Files */,
+			);
+			path = pushStreamInC;
+			sourceTree = "<group>";
+		};
+		A4B0AA411CF69D2800DA4673 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A4B0AA421CF69D2800DA4673 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A4B0AA581CF69D2F00DA4673 /* cCodes */ = {
+			isa = PBXGroup;
+			children = (
+				A49873601D38935100EDED7A /* aw_alloc.c */,
+				A49873611D38935100EDED7A /* aw_alloc.h */,
+				A49873541D33A5D500EDED7A /* aw_utils.c */,
+				A49873551D33A5D500EDED7A /* aw_utils.h */,
+				A4B0AA5A1CF69DAD00DA4673 /* aw_data.c */,
+				A4B0AA5B1CF69DAD00DA4673 /* aw_data.h */,
+				A49873691D38DB5300EDED7A /* aw_array.c */,
+				A498736A1D38DB5300EDED7A /* aw_array.h */,
+				A498735A1D34C4ED00EDED7A /* aw_dict.c */,
+				A498735B1D34C4ED00EDED7A /* aw_dict.h */,
+				A498735D1D37AB7900EDED7A /* aw_file.c */,
+				A498735E1D37AB7900EDED7A /* aw_file.h */,
+				A49873571D34C24500EDED7A /* aw_mp4box.c */,
+				A49873581D34C24500EDED7A /* aw_mp4box.h */,
+				A49873661D38CBE400EDED7A /* aw_parse_mp4.c */,
+				A49873671D38CBE400EDED7A /* aw_parse_mp4.h */,
+				A49698B51D3DE3B30077A962 /* aw_encode_flv.c */,
+				A49698B61D3DE3B30077A962 /* aw_encode_flv.h */,
+				A49698B81D3E12240077A962 /* aw_convert_mp4_to_flv.c */,
+				A49698B91D3E12240077A962 /* aw_convert_mp4_to_flv.h */,
+			);
+			name = cCodes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A4B0AA3D1CF69D2800DA4673 /* pushStreamInC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4B0AA551CF69D2900DA4673 /* Build configuration list for PBXNativeTarget "pushStreamInC" */;
+			buildPhases = (
+				A4B0AA3A1CF69D2800DA4673 /* Sources */,
+				A4B0AA3B1CF69D2800DA4673 /* Frameworks */,
+				A4B0AA3C1CF69D2800DA4673 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pushStreamInC;
+			productName = pushStreamInC;
+			productReference = A4B0AA3E1CF69D2800DA4673 /* pushStreamInC.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A4B0AA361CF69D2800DA4673 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = xcyo;
+				TargetAttributes = {
+					A4B0AA3D1CF69D2800DA4673 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = A4B0AA391CF69D2800DA4673 /* Build configuration list for PBXProject "pushStreamInC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A4B0AA351CF69D2800DA4673;
+			productRefGroup = A4B0AA3F1CF69D2800DA4673 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A4B0AA3D1CF69D2800DA4673 /* pushStreamInC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A4B0AA3C1CF69D2800DA4673 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4B0AA511CF69D2800DA4673 /* LaunchScreen.storyboard in Resources */,
+				A49873651D38963400EDED7A /* test.mov in Resources */,
+				A4B0AA4E1CF69D2800DA4673 /* Assets.xcassets in Resources */,
+				A4B0AA4C1CF69D2800DA4673 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A4B0AA3A1CF69D2800DA4673 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A49873561D33A5D500EDED7A /* aw_utils.c in Sources */,
+				A498736B1D38DB5300EDED7A /* aw_array.c in Sources */,
+				A49873621D38935100EDED7A /* aw_alloc.c in Sources */,
+				A49698BA1D3E12240077A962 /* aw_convert_mp4_to_flv.c in Sources */,
+				A498735F1D37AB7900EDED7A /* aw_file.c in Sources */,
+				A49698B71D3DE3B30077A962 /* aw_encode_flv.c in Sources */,
+				A49873681D38CBE400EDED7A /* aw_parse_mp4.c in Sources */,
+				A49873591D34C24500EDED7A /* aw_mp4box.c in Sources */,
+				A498735C1D34C4ED00EDED7A /* aw_dict.c in Sources */,
+				A4B0AA491CF69D2800DA4673 /* ViewController.m in Sources */,
+				A4B0AA461CF69D2800DA4673 /* AppDelegate.m in Sources */,
+				A4B0AA431CF69D2800DA4673 /* main.m in Sources */,
+				A4B0AA5C1CF69DAD00DA4673 /* aw_data.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A4B0AA4A1CF69D2800DA4673 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4B0AA4B1CF69D2800DA4673 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A4B0AA4F1CF69D2800DA4673 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4B0AA501CF69D2800DA4673 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A4B0AA531CF69D2900DA4673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A4B0AA541CF69D2900DA4673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A4B0AA561CF69D2900DA4673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = pushStreamInC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xcyo.pushStreamInC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A4B0AA571CF69D2900DA4673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = pushStreamInC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xcyo.pushStreamInC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A4B0AA391CF69D2800DA4673 /* Build configuration list for PBXProject "pushStreamInC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4B0AA531CF69D2900DA4673 /* Debug */,
+				A4B0AA541CF69D2900DA4673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4B0AA551CF69D2900DA4673 /* Build configuration list for PBXNativeTarget "pushStreamInC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4B0AA561CF69D2900DA4673 /* Debug */,
+				A4B0AA571CF69D2900DA4673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A4B0AA361CF69D2800DA4673 /* Project object */;
+}
