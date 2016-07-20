@@ -99,6 +99,7 @@ static void aw_parse_stbl_box(aw_mp4_box *stbl_box, aw_parsed_mp4 *parsed_mp4,in
             sample_duration_accum += sample_duration;
         }
     }
+    aw_array_add_int(&sample_duration_array, sample_duration_accum);
     
     //获取ctts，修正stts时间
     aw_array *video_sample_duration_offset_array = NULL;
@@ -204,12 +205,12 @@ static void aw_parse_stbl_box(aw_mp4_box *stbl_box, aw_parsed_mp4 *parsed_mp4,in
                             parsed_mp4->audio_frame_rate = dts - last_audio_dts;
                         }
                     }
-                    
                 }
                 
-                uint32_t composite_time = 0;
-                if (video_sample_duration_offset_array &&video_sample_duration_offset_array->count > 0) {
-                    composite_time = aw_array_element_at_index(video_sample_duration_offset_array, sample_index)->int_value;
+                double composite_time = -1;
+                if (is_video && video_sample_duration_offset_array &&video_sample_duration_offset_array->count > 0) {
+                    composite_time = (double)aw_array_element_at_index(video_sample_duration_offset_array, sample_index)->int_value;
+                    composite_time /= parsed_mp4->video_time_scale;
                 }
                 
                 aw_mp4_av_sample *mp4_av_sample = alloc_aw_mp4_av_sample();
@@ -217,7 +218,13 @@ static void aw_parse_stbl_box(aw_mp4_box *stbl_box, aw_parsed_mp4 *parsed_mp4,in
                 mp4_av_sample->sample_size = curr_sample_size;
                 mp4_av_sample->is_key_frame = is_key_frame;
                 mp4_av_sample->dts = dts;
-                mp4_av_sample->composite_time = composite_time;
+                if (composite_time >= 0) {
+                    mp4_av_sample->is_valid_composite_time = 1;
+                    mp4_av_sample->composite_time = composite_time;
+                }else{
+                    mp4_av_sample->is_valid_composite_time = 0;
+                    mp4_av_sample->composite_time = 0;
+                }
                 mp4_av_sample->is_video = is_video;
                 aw_array_add_release_pointer(&parsed_mp4->frames, mp4_av_sample, (void (*)(void *, int))aw_free_mp4_av_sample_for_parsed_mp4, 0);
             }
@@ -278,12 +285,16 @@ static aw_array_sort_compare_result aw_parse_mp4_sort_frames_compare_func(aw_arr
     }else if(av_sample1->dts < av_sample2->dts){
         return aw_array_sort_compare_result_less;
     }else{
-        if (av_sample1->data_start_in_file > av_sample2->data_start_in_file) {
+        if (!av_sample1->is_video && av_sample2->is_video) {
             return aw_array_sort_compare_result_great;
-        }else if(av_sample1->data_start_in_file < av_sample2->data_start_in_file){
-            return aw_array_sort_compare_result_less;
         }else{
-            return aw_array_sort_compare_result_equal;
+            if (av_sample1->data_start_in_file > av_sample2->data_start_in_file) {
+                return aw_array_sort_compare_result_great;
+            }else if(av_sample1->data_start_in_file < av_sample2->data_start_in_file){
+                return aw_array_sort_compare_result_less;
+            }else{
+                return aw_array_sort_compare_result_equal;
+            }
         }
     }
 }

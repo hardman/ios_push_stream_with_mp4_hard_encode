@@ -138,7 +138,7 @@ typedef struct aw_flv_video_tag{
     
     //h264才有
     aw_flv_v_h264_packet_type h264_package_type;//h264包类型，1字节
-    uint8_t h264_composition_time;//h264 时间调整(即cts，pts = dts + cts), 3字节
+    uint32_t h264_composition_time;//h264 时间调整(即cts，pts = dts + cts), 3字节
     
     //avc sequence header, 包含h264需要的重要信息(sps，pps)，需要在第一个videotag时发送
     aw_data *config_record_data;//video config data

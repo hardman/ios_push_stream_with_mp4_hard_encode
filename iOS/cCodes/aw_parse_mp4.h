@@ -26,7 +26,9 @@ typedef struct aw_mp4_av_sample{
     //时间戳
     double dts;
     //即h264的cts pts = dts + cts
-    uint32_t composite_time;
+    double composite_time;
+    //是否有composite_time
+    int8_t is_valid_composite_time;
     //视频帧还是音频
     uint8_t is_video;
 } aw_mp4_av_sample;

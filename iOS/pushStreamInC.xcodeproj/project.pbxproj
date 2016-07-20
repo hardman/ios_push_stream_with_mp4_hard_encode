@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A46ED3631D3F175700D2AAAF /* aw_rtmp.c in Sources */ = {isa = PBXBuildFile; fileRef = A46ED3611D3F175700D2AAAF /* aw_rtmp.c */; };
+		A46ED36C1D3F17B800D2AAAF /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A46ED36B1D3F17B800D2AAAF /* librtmp.a */; };
+		A46ED3761D3F48DD00D2AAAF /* AWVideoCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = A46ED36F1D3F48DD00D2AAAF /* AWVideoCapture.m */; };
+		A46ED3771D3F48DD00D2AAAF /* AWVideoFifoList.m in Sources */ = {isa = PBXBuildFile; fileRef = A46ED3711D3F48DD00D2AAAF /* AWVideoFifoList.m */; };
+		A46ED3781D3F48DD00D2AAAF /* AWVideoFlvStream.m in Sources */ = {isa = PBXBuildFile; fileRef = A46ED3731D3F48DD00D2AAAF /* AWVideoFlvStream.m */; };
+		A46ED3791D3F48DD00D2AAAF /* AWVideoMp4File.m in Sources */ = {isa = PBXBuildFile; fileRef = A46ED3751D3F48DD00D2AAAF /* AWVideoMp4File.m */; };
 		A49698B71D3DE3B30077A962 /* aw_encode_flv.c in Sources */ = {isa = PBXBuildFile; fileRef = A49698B51D3DE3B30077A962 /* aw_encode_flv.c */; };
 		A49698BA1D3E12240077A962 /* aw_convert_mp4_to_flv.c in Sources */ = {isa = PBXBuildFile; fileRef = A49698B81D3E12240077A962 /* aw_convert_mp4_to_flv.c */; };
 		A49873561D33A5D500EDED7A /* aw_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = A49873541D33A5D500EDED7A /* aw_utils.c */; };
@@ -27,6 +33,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A46ED3611D3F175700D2AAAF /* aw_rtmp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_rtmp.c; path = cCodes/aw_rtmp.c; sourceTree = "<group>"; };
+		A46ED3621D3F175700D2AAAF /* aw_rtmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_rtmp.h; path = cCodes/aw_rtmp.h; sourceTree = "<group>"; };
+		A46ED3661D3F17B800D2AAAF /* amf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amf.h; sourceTree = "<group>"; };
+		A46ED3671D3F17B800D2AAAF /* http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http.h; sourceTree = "<group>"; };
+		A46ED3681D3F17B800D2AAAF /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
+		A46ED3691D3F17B800D2AAAF /* rtmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rtmp.h; sourceTree = "<group>"; };
+		A46ED36B1D3F17B800D2AAAF /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librtmp.a; sourceTree = "<group>"; };
+		A46ED36E1D3F48DD00D2AAAF /* AWVideoCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWVideoCapture.h; sourceTree = "<group>"; };
+		A46ED36F1D3F48DD00D2AAAF /* AWVideoCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWVideoCapture.m; sourceTree = "<group>"; };
+		A46ED3701D3F48DD00D2AAAF /* AWVideoFifoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWVideoFifoList.h; sourceTree = "<group>"; };
+		A46ED3711D3F48DD00D2AAAF /* AWVideoFifoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWVideoFifoList.m; sourceTree = "<group>"; };
+		A46ED3721D3F48DD00D2AAAF /* AWVideoFlvStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWVideoFlvStream.h; sourceTree = "<group>"; };
+		A46ED3731D3F48DD00D2AAAF /* AWVideoFlvStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWVideoFlvStream.m; sourceTree = "<group>"; };
+		A46ED3741D3F48DD00D2AAAF /* AWVideoMp4File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWVideoMp4File.h; sourceTree = "<group>"; };
+		A46ED3751D3F48DD00D2AAAF /* AWVideoMp4File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWVideoMp4File.m; sourceTree = "<group>"; };
+		A46ED37B1D3F4D2500D2AAAF /* aw_pushstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_pushstream.h; path = cCodes/aw_pushstream.h; sourceTree = "<group>"; };
 		A49698B51D3DE3B30077A962 /* aw_encode_flv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_encode_flv.c; path = cCodes/aw_encode_flv.c; sourceTree = "<group>"; };
 		A49698B61D3DE3B30077A962 /* aw_encode_flv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aw_encode_flv.h; path = cCodes/aw_encode_flv.h; sourceTree = "<group>"; };
 		A49698B81D3E12240077A962 /* aw_convert_mp4_to_flv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aw_convert_mp4_to_flv.c; path = cCodes/aw_convert_mp4_to_flv.c; sourceTree = "<group>"; };
@@ -65,12 +87,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46ED36C1D3F17B800D2AAAF /* librtmp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A46ED3641D3F17B800D2AAAF /* librtmp */ = {
+			isa = PBXGroup;
+			children = (
+				A46ED3651D3F17B800D2AAAF /* include */,
+				A46ED36A1D3F17B800D2AAAF /* lib */,
+			);
+			path = librtmp;
+			sourceTree = "<group>";
+		};
+		A46ED3651D3F17B800D2AAAF /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A46ED3661D3F17B800D2AAAF /* amf.h */,
+				A46ED3671D3F17B800D2AAAF /* http.h */,
+				A46ED3681D3F17B800D2AAAF /* log.h */,
+				A46ED3691D3F17B800D2AAAF /* rtmp.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		A46ED36A1D3F17B800D2AAAF /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				A46ED36B1D3F17B800D2AAAF /* librtmp.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		A46ED36D1D3F48CE00D2AAAF /* videoCapture */ = {
+			isa = PBXGroup;
+			children = (
+				A46ED36E1D3F48DD00D2AAAF /* AWVideoCapture.h */,
+				A46ED36F1D3F48DD00D2AAAF /* AWVideoCapture.m */,
+				A46ED3701D3F48DD00D2AAAF /* AWVideoFifoList.h */,
+				A46ED3711D3F48DD00D2AAAF /* AWVideoFifoList.m */,
+				A46ED3721D3F48DD00D2AAAF /* AWVideoFlvStream.h */,
+				A46ED3731D3F48DD00D2AAAF /* AWVideoFlvStream.m */,
+				A46ED3741D3F48DD00D2AAAF /* AWVideoMp4File.h */,
+				A46ED3751D3F48DD00D2AAAF /* AWVideoMp4File.m */,
+			);
+			name = videoCapture;
+			sourceTree = "<group>";
+		};
 		A49873631D38961800EDED7A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +149,7 @@
 		A4B0AA351CF69D2800DA4673 = {
 			isa = PBXGroup;
 			children = (
+				A46ED3641D3F17B800D2AAAF /* librtmp */,
 				A4B0AA581CF69D2F00DA4673 /* cCodes */,
 				A49873631D38961800EDED7A /* Resources */,
 				A4B0AA401CF69D2800DA4673 /* pushStreamInC */,
@@ -101,6 +168,7 @@
 		A4B0AA401CF69D2800DA4673 /* pushStreamInC */ = {
 			isa = PBXGroup;
 			children = (
+				A46ED36D1D3F48CE00D2AAAF /* videoCapture */,
 				A4B0AA441CF69D2800DA4673 /* AppDelegate.h */,
 				A4B0AA451CF69D2800DA4673 /* AppDelegate.m */,
 				A4B0AA471CF69D2800DA4673 /* ViewController.h */,
@@ -125,6 +193,8 @@
 		A4B0AA581CF69D2F00DA4673 /* cCodes */ = {
 			isa = PBXGroup;
 			children = (
+				A46ED3611D3F175700D2AAAF /* aw_rtmp.c */,
+				A46ED3621D3F175700D2AAAF /* aw_rtmp.h */,
 				A49873601D38935100EDED7A /* aw_alloc.c */,
 				A49873611D38935100EDED7A /* aw_alloc.h */,
 				A49873541D33A5D500EDED7A /* aw_utils.c */,
@@ -145,6 +215,7 @@
 				A49698B61D3DE3B30077A962 /* aw_encode_flv.h */,
 				A49698B81D3E12240077A962 /* aw_convert_mp4_to_flv.c */,
 				A49698B91D3E12240077A962 /* aw_convert_mp4_to_flv.h */,
+				A46ED37B1D3F4D2500D2AAAF /* aw_pushstream.h */,
 			);
 			name = cCodes;
 			sourceTree = "<group>";
@@ -220,18 +291,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46ED3761D3F48DD00D2AAAF /* AWVideoCapture.m in Sources */,
+				A46ED3771D3F48DD00D2AAAF /* AWVideoFifoList.m in Sources */,
 				A49873561D33A5D500EDED7A /* aw_utils.c in Sources */,
 				A498736B1D38DB5300EDED7A /* aw_array.c in Sources */,
 				A49873621D38935100EDED7A /* aw_alloc.c in Sources */,
+				A46ED3791D3F48DD00D2AAAF /* AWVideoMp4File.m in Sources */,
 				A49698BA1D3E12240077A962 /* aw_convert_mp4_to_flv.c in Sources */,
 				A498735F1D37AB7900EDED7A /* aw_file.c in Sources */,
 				A49698B71D3DE3B30077A962 /* aw_encode_flv.c in Sources */,
 				A49873681D38CBE400EDED7A /* aw_parse_mp4.c in Sources */,
 				A49873591D34C24500EDED7A /* aw_mp4box.c in Sources */,
+				A46ED3631D3F175700D2AAAF /* aw_rtmp.c in Sources */,
 				A498735C1D34C4ED00EDED7A /* aw_dict.c in Sources */,
 				A4B0AA491CF69D2800DA4673 /* ViewController.m in Sources */,
 				A4B0AA461CF69D2800DA4673 /* AppDelegate.m in Sources */,
 				A4B0AA431CF69D2800DA4673 /* main.m in Sources */,
+				A46ED3781D3F48DD00D2AAAF /* AWVideoFlvStream.m in Sources */,
 				A4B0AA5C1CF69DAD00DA4673 /* aw_data.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,8 +422,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = pushStreamInC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/librtmp/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xcyo.pushStreamInC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -357,8 +438,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = pushStreamInC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/librtmp/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xcyo.pushStreamInC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

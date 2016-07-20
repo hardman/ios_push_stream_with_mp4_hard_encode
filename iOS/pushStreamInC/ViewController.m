@@ -7,61 +7,138 @@
 //
 
 #import "ViewController.h"
-#include "aw_data.h"
-#include "aw_dict.h"
-#include "aw_file.h"
-#include "aw_mp4box.h"
-#include "aw_array.h"
-#include "aw_parse_mp4.h"
-#include "aw_convert_mp4_to_flv.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface ViewController ()
+#import "AWVideoCapture.h"
 
+@interface ViewController ()<AWVideoCaptureDelegate>
+//按钮
+@property (nonatomic, strong) UIButton *startBtn;
+@property (nonatomic, strong) UIButton *switchBtn;
+@property (nonatomic, strong) UIButton *saveVideoBtn;
+
+@property (nonatomic, strong) UIView *preview;
+@property (nonatomic, strong) AWVideoCapture *capture;
 @end
 
 @implementation ViewController
 
+-(void)videoCapture:(AWVideoCapture *)capture stateChangeFrom:(aw_rtmp_state)fromState toState:(aw_rtmp_state)toState{
+    switch (toState) {
+        case aw_rtmp_state_idle: {
+            self.startBtn.enabled = YES;
+            [self.startBtn setTitle:@"开始录制" forState:UIControlStateNormal];
+            break;
+        }
+        case aw_rtmp_state_connecting: {
+            self.startBtn.enabled = NO;
+            [self.startBtn setTitle:@"连接中" forState:UIControlStateNormal];
+            break;
+        }
+        case aw_rtmp_state_opened: {
+            break;
+        }
+        case aw_rtmp_state_closed: {
+            break;
+        }
+        case aw_rtmp_state_error_write: {
+            break;
+        }
+        case aw_rtmp_state_error_open: {
+            break;
+        }
+        case aw_rtmp_state_error_net: {
+            break;
+        }
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
+    [self.preview addSubview: self.capture.preview];
+    self.capture.preview.center = self.preview.center;
+    [self createUI];
     [self test];
 }
 
-static void write_flvdata_to_file(aw_data *flv_data){
-    NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSString *flvPath = [documentPath stringByAppendingPathComponent:@"test.flv"];
-    
-    NSData *flvData = [NSData dataWithBytes:flv_data->data length:flv_data->size];
-    
-    [flvData writeToFile:flvPath atomically:YES];
+-(AWVideoCapture *) capture{
+    if (!_capture) {
+        _capture = [AWVideoCapture new];
+        _capture.delegate = self;
+    }
+    return _capture;
+}
+
+-(UIView *)preview{
+    if (!_preview) {
+        _preview = [UIView new];
+        _preview.frame = self.view.bounds;
+        [self.view addSubview:_preview];
+        [self.view sendSubviewToBack:_preview];
+    }
+    return _preview;
 }
 
 -(void) test{
-    //    aw_data_test();
-    //    aw_dict_test();
+}
+
+-(void) createUI{
+    self.startBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 30)];
+    [self.startBtn setTitle:@"开始录制！" forState:UIControlStateNormal];
+    [self.startBtn addTarget:self action:@selector(onStartClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.startBtn];
     
-    //test file
-    //    aw_test_file("");
-    //    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    //    aw_test_file(path.UTF8String);
-    //    
-    //    //test mp4 file
-    NSString *movPath = [[NSBundle mainBundle] pathForResource:@"test.mov" ofType:nil];
-    NSData *data = [NSData dataWithContentsOfFile:movPath];
+    self.switchBtn = [[UIButton alloc] initWithFrame:CGRectMake(230, 100, 100, 30)];
+    [self.switchBtn setTitle:@"换摄像头！" forState:UIControlStateNormal];
+    [self.switchBtn addTarget:self action:@selector(onSwitchClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.switchBtn];
     
-    //    aw_test_mp4_box((void *)data.bytes, (uint32_t)data.length);
-    //    aw_parse_mp4_file_data((void *)data.bytes, (uint32_t)data.length);
-    //    aw_parse_mp4_test((void *)data.bytes, (uint32_t)data.length);
+    self.saveVideoBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 150, 150, 30)];
+    [self.saveVideoBtn setTitle:@"保存到相册！" forState:UIControlStateNormal];
+    [self.saveVideoBtn addTarget:self action:@selector(onSaveVideo) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.saveVideoBtn];
+}
+
+-(void) onStartClick{
+    if (self.capture.isCapturing) {
+        [self.startBtn setTitle:@"开始录制！" forState:UIControlStateNormal];
+        [self.capture stopCapture];
+    }else{
+        self.capture.rtmpUrl = @"rtmp://192.168.1.124/live/test";
+        if ([self.capture startCapture]) {
+            [self.startBtn setTitle:@"停止录制！" forState:UIControlStateNormal];
+        }
+    }
+}
+
+-(void) onSwitchClick{
+    [self.capture switchCamera];
+}
+
+-(void) savePathToLibrary:(NSString *)path{
+    NSURL *url = [NSURL fileURLWithPath:path];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    //    test_aw_array();
-    
-    aw_convert_mp4_to_flv_test((void *)data.bytes, (uint32_t)data.length, write_flvdata_to_file);
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        ALAssetsLibrary *assetsLib = [ALAssetsLibrary new];
+        [assetsLib writeVideoAtPathToSavedPhotosAlbum:url completionBlock:^(NSURL *assetURL, NSError *error) {
+            NSLog(@"save file path=%@ assetUrl=%@ error=%@", path, assetURL, error);
+            [fileManager removeItemAtPath:path error:nil];
+        }];
+    }else{
+        NSLog(@"没有找到文件！%@",path);
+    }
+}
+
+-(void) onSaveVideo{
+    [self savePathToLibrary:self.capture.videoMp4File.defaultPath];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
