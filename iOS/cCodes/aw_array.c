@@ -296,7 +296,6 @@ static void aw_array_sort_quick_inner(aw_array *array, int start, int end, aw_ar
     
     int i = start, j = end;
     while (j > i) {
-        //检查j
         do{
             aw_array_element *end_ele = aw_array_element_at_index(array, j);
             aw_array_sort_compare_result compare_result = compare_func(key, end_ele);

@@ -55,6 +55,8 @@ typedef struct aw_parsed_mp4 {
     //视频config record for h264
     aw_data *video_config_record;
     
+    double video_start_dts;
+    
     //-------音频参数--------
     //音频帧率：一帧多长时间
     double audio_frame_rate;
@@ -68,6 +70,8 @@ typedef struct aw_parsed_mp4 {
     aw_data *audio_config_record;
     
     aw_data *mp4_file_data;
+    
+    double audio_start_dts;
     
     //音视频帧数据
     aw_array *frames;

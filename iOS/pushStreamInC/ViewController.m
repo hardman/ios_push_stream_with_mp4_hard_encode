@@ -37,9 +37,11 @@
             break;
         }
         case aw_rtmp_state_opened: {
+            self.startBtn.enabled = YES;
             break;
         }
         case aw_rtmp_state_closed: {
+            self.startBtn.enabled = YES;
             break;
         }
         case aw_rtmp_state_error_write: {

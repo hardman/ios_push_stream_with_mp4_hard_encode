@@ -64,8 +64,6 @@ static void aw_rtmp_state_changed_inner(aw_rtmp_context *ctx, aw_rtmp_state old_
             
             //当前流时间戳
             ctx->current_time_stamp = 0;
-            ctx->last_audio_time_stamp = 0;
-            ctx->last_video_time_stamp = 0;
             break;
         }
         case aw_rtmp_state_opened: {

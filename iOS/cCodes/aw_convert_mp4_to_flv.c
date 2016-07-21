@@ -164,6 +164,8 @@ static aw_data *static_rtmp_buff_data = NULL;
 
 //打开rtmp context
 extern int8_t aw_open_rtmp_context_for_parsed_mp4(const char *rtmp_url, aw_rtmp_state_changed_cb state_changed_cb){
+    aw_uninit_debug_alloc();
+    aw_init_debug_alloc();
     if(!static_rtmp_buff_data){
         static_rtmp_buff_data = alloc_aw_data(0);
     }
@@ -172,6 +174,8 @@ extern int8_t aw_open_rtmp_context_for_parsed_mp4(const char *rtmp_url, aw_rtmp_
         if (static_rtmp_context_for_parsed_mp4) {
             return aw_rtmp_open(static_rtmp_context_for_parsed_mp4);
         }
+    }else{
+        return aw_rtmp_open(static_rtmp_context_for_parsed_mp4);
     }
     return 1;
 }
@@ -185,10 +189,16 @@ extern void aw_close_rtmp_context_for_parsed_mp4(){
     if(static_rtmp_buff_data){
         free_aw_data(&static_rtmp_buff_data);
     }
+    
+    aw_print_alloc_description();
 }
 
 //发送数据
 static int aw_convert_mp4_to_flv_stream_send_data(aw_data *data){
+    if (!aw_is_rtmp_opened(static_rtmp_context_for_parsed_mp4)) {
+        return 0;
+    }
+    
     int write_ret = aw_rtmp_write(static_rtmp_context_for_parsed_mp4, (const char *)data->data, data->size);
     
     //    AWLog("aw_convert_mp4_to_flv_stream_send_data rtmp_write sendbytes=%u ret = %d", data->size, write_ret);
@@ -236,18 +246,7 @@ static void aw_convert_parsed_mp4_to_flv_stream_send_body(aw_parsed_mp4 *parsed_
         return;
     }
     
-    //时间校正，新的mp4的起始时间是0，但是对于flv来说，肯定不是0，所以要纪录上一个mp4文件最后的时间戳，作为新的流的起始时间
-    if (static_rtmp_context_for_parsed_mp4->last_audio_time_stamp != 0 ||
-        static_rtmp_context_for_parsed_mp4->last_video_time_stamp != 0) {
-        aw_mp4_av_sample *first_sample = aw_array_element_at_index(parsed_mp4->frames, 0)->pointer_value;
-        if (first_sample) {
-            if (first_sample->is_video) {
-                static_rtmp_context_for_parsed_mp4->current_time_stamp = static_rtmp_context_for_parsed_mp4->last_video_time_stamp + parsed_mp4->video_frame_rate;
-            }else{
-                static_rtmp_context_for_parsed_mp4->current_time_stamp = static_rtmp_context_for_parsed_mp4->last_audio_time_stamp + parsed_mp4->audio_frame_rate;
-            }
-        }
-    }
+    static_rtmp_context_for_parsed_mp4->current_time_stamp = static_rtmp_context_for_parsed_mp4->last_time_stamp;
     
     int i = 0;
     for (; i < parsed_mp4->frames->count; i++) {
@@ -257,12 +256,12 @@ static void aw_convert_parsed_mp4_to_flv_stream_send_body(aw_parsed_mp4 *parsed_
         if (av_sample->is_video) {
             //写入video tag
             aw_write_flv_tag_for_convert_mp4_to_flv(&static_rtmp_buff_data, &aw_create_flv_video_tag(parsed_mp4, av_sample)->common_tag);
-            static_rtmp_context_for_parsed_mp4->last_video_time_stamp = av_sample->dts;
         }else{
             //写入audio tag
             aw_write_flv_tag_for_convert_mp4_to_flv(&static_rtmp_buff_data, &aw_create_flv_audio_tag(parsed_mp4, av_sample)->common_tag);
-            static_rtmp_context_for_parsed_mp4->last_audio_time_stamp = av_sample->dts;
         }
+        
+        static_rtmp_context_for_parsed_mp4->last_time_stamp = av_sample->dts;
         
         AWLog("--------send flv tag dts=%f, cts=%f", av_sample->dts, av_sample->composite_time);
         
@@ -284,6 +283,8 @@ static void aw_convert_parsed_mp4_to_flv_stream_start(aw_parsed_mp4 *parsed_mp4)
     if (static_rtmp_context_for_parsed_mp4->is_header_sent) {
         aw_convert_parsed_mp4_to_flv_stream_send_body(parsed_mp4);
     }
+    
+    free_aw_parsed_mp4(&parsed_mp4);
 }
 
 //对外接口

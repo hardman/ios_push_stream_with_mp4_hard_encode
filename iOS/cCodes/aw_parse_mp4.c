@@ -217,7 +217,7 @@ static void aw_parse_stbl_box(aw_mp4_box *stbl_box, aw_parsed_mp4 *parsed_mp4,in
                 mp4_av_sample->data_start_in_file = curr_sample_pos;
                 mp4_av_sample->sample_size = curr_sample_size;
                 mp4_av_sample->is_key_frame = is_key_frame;
-                mp4_av_sample->dts = dts;
+                mp4_av_sample->dts = dts + (is_video ? parsed_mp4->video_start_dts : parsed_mp4->audio_start_dts);
                 if (composite_time >= 0) {
                     mp4_av_sample->is_valid_composite_time = 1;
                     mp4_av_sample->composite_time = composite_time;
@@ -246,6 +246,29 @@ static void aw_parse_trak_box(aw_mp4_box *trak_box, aw_parsed_mp4 *parsed_mp4){
     aw_mp4_box *stbl_box = aw_mp4box_find_box(mdia_box, "minf.stbl");
     aw_mp4_box *mdhd_box = aw_mp4box_find_box(mdia_box, "mdhd");
     aw_mp4_box *stsd_box = aw_mp4box_find_box(stbl_box, "stsd");
+    aw_mp4_box *elst_box = aw_mp4box_find_box(trak_box, "edts.elst");
+    
+    int32_t start_offset = 0;
+    int32_t empty_duration = 0;
+    if (elst_box) {
+        int edit_start_index = 0;
+        int32_t start_time = 0;
+        int edit_list_count = aw_dict_get_int(elst_box->parsed_data, "edit_list_count");
+        aw_dict **entries = aw_dict_get_pointer(elst_box->parsed_data, "entries");
+        int i = 0;
+        for (; i < edit_list_count; i++) {
+            aw_dict *entry = entries[i];
+            int32_t duration = aw_dict_get_int(entry, "duration");
+            int32_t time = aw_dict_get_int(entry, "start_time");
+            if (i == 0 && time == -1) {
+                empty_duration = duration;
+                edit_start_index = 1;
+            }else if(i == edit_start_index && time >= 0){
+                start_time = time;
+            }
+        }
+        start_offset = start_time;
+    }
     
     const char *handle_type = aw_dict_get_str(hdlr_box->parsed_data, "handle_type");
     if (!strcmp(handle_type, "vide")) {
@@ -256,6 +279,8 @@ static void aw_parse_trak_box(aw_mp4_box *trak_box, aw_parsed_mp4 *parsed_mp4){
         
         aw_mp4_box *avcc_box = aw_mp4box_find_box(stsd_box, "avc1.avcC");
         parsed_mp4->video_config_record = copy_aw_data(aw_dict_get_pointer(avcc_box->parsed_data, "avcc_data"));
+        
+        parsed_mp4->video_start_dts = -(start_offset + empty_duration / 90000 * parsed_mp4->video_time_scale) / parsed_mp4->video_time_scale;
         
         aw_parse_stbl_box(stbl_box, parsed_mp4, 1);
     }else if(!strcmp(handle_type, "soun")){
@@ -271,6 +296,9 @@ static void aw_parse_trak_box(aw_mp4_box *trak_box, aw_parsed_mp4 *parsed_mp4){
         if (esds_box) {
             parsed_mp4->audio_config_record = copy_aw_data(aw_dict_get_pointer(esds_box->parsed_data, "decoder_config"));
         }
+        
+        parsed_mp4->audio_start_dts = -(start_offset + empty_duration / 90000 * parsed_mp4->audio_sample_rate) / parsed_mp4->audio_sample_rate;
+        
         aw_parse_stbl_box(stbl_box, parsed_mp4, 0);
     }else{
         return;

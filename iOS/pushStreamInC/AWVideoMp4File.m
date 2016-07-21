@@ -230,7 +230,13 @@
     if (!self.isWriting) {
         return;
     }
-    [self completeOneFile:finishHandler];
+    
+    @try{
+        [self completeOneFile:finishHandler];
+    }@catch(id exception){
+        NSLog(@"complete one file exception %@", exception);
+    }
+    
     self.fileAssetWriter = nil;
     self.isWriting = NO;
     

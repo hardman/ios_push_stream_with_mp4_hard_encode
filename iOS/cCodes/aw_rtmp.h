@@ -40,11 +40,9 @@ typedef struct aw_rtmp_context{
     
     int8_t is_header_sent;//是不是发送过flv的header了
     
-    //时间校正
-    double last_video_time_stamp;
-    double last_audio_time_stamp;
     //当前mp4文件开始时间戳
     double current_time_stamp;
+    double last_time_stamp;
     
     //总时间
     double total_duration;
